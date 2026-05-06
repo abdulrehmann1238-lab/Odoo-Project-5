@@ -1,0 +1,162 @@
+:root {
+    --brand-primary: #2563eb;
+    --brand-secondary: #3b82f6;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --bg-soft: #f8fafc;
+    --glass: rgba(255, 255, 255, 0.7);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-soft);
+    color: #1e293b;
+    overflow-x: hidden;
+}
+
+.glass-panel {
+    background: var(--glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.premium-shadow {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03), 0 10px 15px -3px rgba(0, 0, 0, 0.03);
+}
+
+.premium-shadow-hover:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+    transform: translateY(-2px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Loading Screen Animations */
+@keyframes flow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.animate-flow {
+    background: linear-gradient(-45deg, #eff6ff, #f0fdf4, #f8fafc, #eff6ff);
+    background-size: 400% 400%;
+    animation: flow 15s ease infinite;
+}
+
+@keyframes pulse-soft {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.05); }
+}
+
+.node-pulse {
+    animation: pulse-soft 3s ease-in-out infinite;
+}
+
+/* Slide Transitions */
+.page-transition {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.hidden-view {
+    display: none !important;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(5px);
+}
+
+.visible-view {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* Sidebar transitions */
+#sidebar {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (max-width: 768px) {
+    #sidebar {
+        position: fixed;
+        left: -256px;
+        height: 100vh;
+        z-index: 50;
+    }
+    #sidebar.mobile-open {
+        left: 0;
+        box-shadow: 20px 0 50px rgba(0,0,0,0.1);
+    }
+}
+
+.nav-item-active {
+    background-color: #eff6ff;
+    color: #2563eb;
+    border-right: 3px solid #2563eb;
+}
+
+/* Table styles */
+.table-row-hover:hover {
+    background-color: #f1f5f9;
+}
+
+/* Audit Timeline */
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 32px;
+    bottom: -16px;
+    width: 1px;
+    background-color: #e2e8f0;
+}
+
+.timeline-item:last-child::before {
+    display: none;
+}
+
+/* Interactive elements */
+.btn-press:active {
+    transform: scale(0.96);
+}
+
+/* Charts */
+.bar-chart-animate {
+    transition: height 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Utility */
+.view-pane {
+    width: 100%;
+    min-height: 100%;
+}
+
+.bg-grid {
+    background-image: radial-gradient(#e2e8f0 0.5px, transparent 0.5px);
+    background-size: 24px 24px;
+}
+
+.animate-in {
+    animation: enter 0.5s ease-out forwards;
+}
+
+@keyframes enter {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
