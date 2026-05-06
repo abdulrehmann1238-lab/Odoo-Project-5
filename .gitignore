@@ -1,0 +1,12 @@
+# Local development
+.DS_Store
+node_modules/
+dist/
+.env
+
+# Serve script
+serve.ps1
+
+# IDEs
+.vscode/
+.idea/
